@@ -36,7 +36,7 @@ export function Hero() {
             key={i}
             className="absolute rounded-full bg-primary/70"
             style={{ left: `${p.left}%`, top: `${p.top}%`, width: p.size, height: p.size }}
-            animate={reduce ? undefined : { y: [0, -30, 0], opacity: [0.15, 0.8, 0.15] }}
+            animate={reduce ? { opacity: 0.4 } : { y: [0, -30, 0], opacity: [0.15, 0.8, 0.15] }}
             transition={{ duration: 8 + (i % 5), repeat: Infinity, delay: p.delay }}
           />
         ))}
