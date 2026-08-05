@@ -16,8 +16,8 @@ export function Reveal({
   return (
     <motion.div
       className={className}
-      initial={reduce ? undefined : { opacity: 0, y }}
-      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+      initial={reduce ? { opacity: 1 } : { opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] }}
     >
@@ -93,7 +93,9 @@ export function GlowCard({
   const reduce = useReducedMotion();
   return (
     <motion.div
-      whileHover={reduce || !tilt ? undefined : { y: -6, rotateX: 3, rotateY: -3, scale: 1.01 }}
+      whileHover={
+        reduce || !tilt ? { y: 0 } : { y: -6, rotateX: 3, rotateY: -3, scale: 1.01 }
+      }
       transition={{ type: "spring", stiffness: 240, damping: 20 }}
       style={{ transformPerspective: 900 }}
       className={`glass glow-ring group relative overflow-hidden rounded-2xl p-6 transition-shadow duration-500 hover:shadow-glow ${className}`}
