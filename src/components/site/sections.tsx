@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import {
   BadgeCheck,
+  Briefcase,
   Brain,
   Building2,
   CheckCircle2,
@@ -28,7 +29,6 @@ import {
   User,
   Users,
   UtensilsCrossed,
-  Video,
   Wallet,
   Wand2,
   Wrench,
@@ -403,8 +403,6 @@ const industries = [
   { Icon: User, label: "Personal Brands" },
   { Icon: TrendingUp, label: "SMEs" },
 ];
-
-import { Briefcase } from "lucide-react";
 
 export function Industries() {
   return (
