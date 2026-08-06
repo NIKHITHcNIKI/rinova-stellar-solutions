@@ -261,7 +261,13 @@ export function TechMarquee() {
   );
 }
 
-const projects = [
+const projects: {
+  name: string;
+  tag: string;
+  features: string[];
+  Icon: typeof Brain;
+  url?: string;
+}[] = [
   {
     name: "Fluent AI",
     tag: "AI-powered communication platform",
@@ -286,6 +292,7 @@ const projects = [
       "Cover Letters",
     ],
     Icon: Wand2,
+    url: "https://sctlettergen.site/",
   },
 ];
 
@@ -300,30 +307,42 @@ export function Projects() {
       <div className="grid gap-6 lg:grid-cols-2">
         {projects.map((p, i) => (
           <Reveal key={p.name} delay={i * 0.1}>
-            <GlowCard className="h-full p-0" tilt={false}>
+            <GlowCard className="group h-full p-0" tilt={false}>
               <div className="relative flex h-52 items-center justify-center overflow-hidden border-b border-border bg-[radial-gradient(60%_80%_at_50%_0%,color-mix(in_oklab,var(--primary)_26%,transparent),transparent_70%)]">
-                <div className="grid-lines absolute inset-0 opacity-70" />
+                <div className="grid-lines absolute inset-0 opacity-70 transition-opacity duration-500 group-hover:opacity-100" />
                 <motion.div
-                  whileHover={{ scale: 1.06, rotate: -2 }}
-                  transition={{ type: "spring", stiffness: 200, damping: 18 }}
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: i * 0.6 }}
+                  whileHover={{ scale: 1.08, rotate: -3 }}
                   className="glass relative grid size-24 place-items-center rounded-3xl text-primary shadow-glow"
                 >
                   <p.Icon className="size-10" />
                 </motion.div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold">{p.name}</h3>
+                <h3 className="text-xl font-bold transition-colors group-hover:text-primary">{p.name}</h3>
                 <p className="mt-1 text-sm text-primary">{p.tag}</p>
                 <ul className="mt-5 flex flex-wrap gap-2">
                   {p.features.map((f) => (
                     <li
                       key={f}
-                      className="rounded-full border border-border bg-muted/40 px-3 py-1.5 text-xs text-muted-foreground"
+                      className="rounded-full border border-border bg-muted/40 px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:border-primary/50 hover:text-foreground"
                     >
                       {f}
                     </li>
                   ))}
                 </ul>
+                {p.url ? (
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow transition-transform duration-300 hover:scale-[1.04]"
+                  >
+                    Visit Live Site
+                    <ExternalLink className="size-4" />
+                  </a>
+                ) : null}
               </div>
             </GlowCard>
           </Reveal>
@@ -332,6 +351,7 @@ export function Projects() {
     </Section>
   );
 }
+
 
 const reasons = [
   { Icon: Users, title: "Professional Development Team" },
