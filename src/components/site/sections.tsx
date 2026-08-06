@@ -35,6 +35,8 @@ import {
   Wrench,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import projFluent from "@/assets/proj-fluent-ai.jpg";
+import projLetterGen from "@/assets/proj-lettergen.jpg";
 import svcAi from "@/assets/svc-ai.jpg";
 import svcBrand from "@/assets/svc-brand.jpg";
 import svcDesign from "@/assets/svc-design.jpg";
