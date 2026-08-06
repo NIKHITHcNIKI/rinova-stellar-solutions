@@ -8,6 +8,7 @@ import {
   Code2,
   Cpu,
   CreditCard,
+  ExternalLink,
   Factory,
   Film,
   GraduationCap,
