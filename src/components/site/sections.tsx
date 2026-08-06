@@ -35,6 +35,8 @@ import {
   Wrench,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import projFluent from "@/assets/proj-fluent-ai.jpg";
+import projLetterGen from "@/assets/proj-lettergen.jpg";
 import svcAi from "@/assets/svc-ai.jpg";
 import svcBrand from "@/assets/svc-brand.jpg";
 import svcDesign from "@/assets/svc-design.jpg";
@@ -267,6 +269,7 @@ const projects: {
   tag: string;
   features: string[];
   Icon: typeof Brain;
+  img: string;
   url?: string;
 }[] = [
   {
@@ -280,6 +283,7 @@ const projects: {
       "Real-time Conversation",
     ],
     Icon: Brain,
+    img: projFluent,
   },
   {
     name: "LetterGen AI",
@@ -293,6 +297,7 @@ const projects: {
       "Cover Letters",
     ],
     Icon: Wand2,
+    img: projLetterGen,
     url: "https://sctlettergen.site/",
   },
 ];
@@ -309,17 +314,28 @@ export function Projects() {
         {projects.map((p, i) => (
           <Reveal key={p.name} delay={i * 0.1}>
             <GlowCard className="group h-full p-0" tilt={false}>
-              <div className="relative flex h-52 items-center justify-center overflow-hidden border-b border-border bg-[radial-gradient(60%_80%_at_50%_0%,color-mix(in_oklab,var(--primary)_26%,transparent),transparent_70%)]">
-                <div className="grid-lines absolute inset-0 opacity-70 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="relative h-56 overflow-hidden border-b border-border">
+                <img
+                  src={p.img}
+                  alt={`${p.name} product interface`}
+                  loading="lazy"
+                  width={1280}
+                  height={800}
+                  className="size-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(to_top,var(--card),transparent_70%)]" />
+                <div className="grid-lines absolute inset-0 opacity-40 transition-opacity duration-500 group-hover:opacity-80" />
+                <div className="absolute inset-x-0 bottom-0 h-px bg-primary/60 shadow-glow" />
                 <motion.div
-                  animate={{ y: [0, -10, 0] }}
+                  animate={{ y: [0, -8, 0] }}
                   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: i * 0.6 }}
-                  whileHover={{ scale: 1.08, rotate: -3 }}
-                  className="glass relative grid size-24 place-items-center rounded-3xl text-primary shadow-glow"
+                  whileHover={{ scale: 1.1, rotate: -4 }}
+                  className="glass absolute bottom-4 left-5 grid size-16 place-items-center rounded-2xl text-primary shadow-glow"
                 >
-                  <p.Icon className="size-10" />
+                  <p.Icon className="size-8" />
                 </motion.div>
               </div>
+
               <div className="p-6">
                 <h3 className="text-xl font-bold transition-colors group-hover:text-primary">{p.name}</h3>
                 <p className="mt-1 text-sm text-primary">{p.tag}</p>
