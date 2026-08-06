@@ -158,16 +158,16 @@ export function About() {
 }
 
 const services = [
-  { Icon: Layout, title: "Website Design", desc: "Pixel-perfect, conversion-focused interfaces built around your brand." },
-  { Icon: Code2, title: "Website Development", desc: "Fast, secure, and scalable websites engineered with modern stacks." },
-  { Icon: MonitorSmartphone, title: "UI/UX Design", desc: "Research-led product design that makes complex flows feel effortless." },
-  { Icon: PenTool, title: "Logo Design", desc: "Distinctive identity systems that make your business unforgettable." },
-  { Icon: Wand2, title: "Logo Animation", desc: "Motion-crafted brand marks for reels, intros, and product launches." },
-  { Icon: Film, title: "Intro Videos", desc: "Cinematic brand videos that communicate value in seconds." },
-  { Icon: Brain, title: "AI Solutions", desc: "Custom AI assistants, automation, and intelligent product features." },
-  { Icon: Users, title: "Business Consultation", desc: "Strategy sessions that align technology decisions with revenue goals." },
-  { Icon: Layers, title: "Software Planning", desc: "Architecture, roadmaps, and specs before a single line is written." },
-  { Icon: Rocket, title: "Digital Transformation", desc: "Modernise legacy operations with cloud-native, automated workflows." },
+  { Icon: Layout, title: "Website Design", desc: "Pixel-perfect, conversion-focused interfaces built around your brand.", img: svcDesign },
+  { Icon: Code2, title: "Website Development", desc: "Fast, secure, and scalable websites engineered with modern stacks.", img: svcDev },
+  { Icon: MonitorSmartphone, title: "UI/UX Design", desc: "Research-led product design that makes complex flows feel effortless.", img: svcDesign },
+  { Icon: PenTool, title: "Logo Design", desc: "Distinctive identity systems that make your business unforgettable.", img: svcBrand },
+  { Icon: Wand2, title: "Logo Animation", desc: "Motion-crafted brand marks for reels, intros, and product launches.", img: svcBrand },
+  { Icon: Film, title: "Intro Videos", desc: "Cinematic brand videos that communicate value in seconds.", img: svcVideo },
+  { Icon: Brain, title: "AI Solutions", desc: "Custom AI assistants, automation, and intelligent product features.", img: svcAi },
+  { Icon: Users, title: "Business Consultation", desc: "Strategy sessions that align technology decisions with revenue goals.", img: svcStrategy },
+  { Icon: Layers, title: "Software Planning", desc: "Architecture, roadmaps, and specs before a single line is written.", img: svcStrategy },
+  { Icon: Rocket, title: "Digital Transformation", desc: "Modernise legacy operations with cloud-native, automated workflows.", img: svcDev },
 ];
 
 export function Services() {
@@ -181,18 +181,36 @@ export function Services() {
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((s, i) => (
           <Reveal key={s.title} delay={(i % 3) * 0.08}>
-            <GlowCard className="h-full">
-              <div className="glass grid size-12 place-items-center rounded-xl text-primary">
-                <s.Icon className="size-6" />
+            <GlowCard className="group h-full overflow-hidden p-0">
+              <div className="relative h-40 overflow-hidden">
+                <img
+                  src={s.img}
+                  alt={`${s.title} illustration`}
+                  loading="lazy"
+                  width={768}
+                  height={512}
+                  className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(to_top,var(--card),transparent_75%)]" />
+                <div className="absolute inset-x-0 bottom-0 h-px bg-primary/50 shadow-glow" />
+                <motion.div
+                  whileHover={{ rotate: -6, scale: 1.08 }}
+                  transition={{ type: "spring", stiffness: 220, damping: 16 }}
+                  className="glass absolute bottom-3 left-4 grid size-12 place-items-center rounded-xl text-primary shadow-glow"
+                >
+                  <s.Icon className="size-6" />
+                </motion.div>
               </div>
-              <h3 className="mt-5 text-lg font-semibold">{s.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-              <a
-                href="#contact"
-                className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-transform duration-300 hover:translate-x-1"
-              >
-                Read More →
-              </a>
+              <div className="p-6">
+                <h3 className="text-lg font-semibold transition-colors group-hover:text-primary">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
+                <a
+                  href="#contact"
+                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-transform duration-300 hover:translate-x-1"
+                >
+                  Read More →
+                </a>
+              </div>
             </GlowCard>
           </Reveal>
         ))}
@@ -200,6 +218,7 @@ export function Services() {
     </Section>
   );
 }
+
 
 const tech = [
   "HTML",
