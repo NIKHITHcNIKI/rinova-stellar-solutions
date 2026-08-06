@@ -8,6 +8,7 @@ import {
   Code2,
   Cpu,
   CreditCard,
+  ExternalLink,
   Factory,
   Film,
   GraduationCap,
@@ -34,6 +35,12 @@ import {
   Wrench,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import svcAi from "@/assets/svc-ai.jpg";
+import svcBrand from "@/assets/svc-brand.jpg";
+import svcDesign from "@/assets/svc-design.jpg";
+import svcDev from "@/assets/svc-dev.jpg";
+import svcStrategy from "@/assets/svc-strategy.jpg";
+import svcVideo from "@/assets/svc-video.jpg";
 import { Eyebrow, GlowCard, Reveal, Section, SectionHeading } from "./primitives";
 
 export function TrustBar() {
@@ -158,16 +165,16 @@ export function About() {
 }
 
 const services = [
-  { Icon: Layout, title: "Website Design", desc: "Pixel-perfect, conversion-focused interfaces built around your brand." },
-  { Icon: Code2, title: "Website Development", desc: "Fast, secure, and scalable websites engineered with modern stacks." },
-  { Icon: MonitorSmartphone, title: "UI/UX Design", desc: "Research-led product design that makes complex flows feel effortless." },
-  { Icon: PenTool, title: "Logo Design", desc: "Distinctive identity systems that make your business unforgettable." },
-  { Icon: Wand2, title: "Logo Animation", desc: "Motion-crafted brand marks for reels, intros, and product launches." },
-  { Icon: Film, title: "Intro Videos", desc: "Cinematic brand videos that communicate value in seconds." },
-  { Icon: Brain, title: "AI Solutions", desc: "Custom AI assistants, automation, and intelligent product features." },
-  { Icon: Users, title: "Business Consultation", desc: "Strategy sessions that align technology decisions with revenue goals." },
-  { Icon: Layers, title: "Software Planning", desc: "Architecture, roadmaps, and specs before a single line is written." },
-  { Icon: Rocket, title: "Digital Transformation", desc: "Modernise legacy operations with cloud-native, automated workflows." },
+  { Icon: Layout, title: "Website Design", desc: "Pixel-perfect, conversion-focused interfaces built around your brand.", img: svcDesign },
+  { Icon: Code2, title: "Website Development", desc: "Fast, secure, and scalable websites engineered with modern stacks.", img: svcDev },
+  { Icon: MonitorSmartphone, title: "UI/UX Design", desc: "Research-led product design that makes complex flows feel effortless.", img: svcDesign },
+  { Icon: PenTool, title: "Logo Design", desc: "Distinctive identity systems that make your business unforgettable.", img: svcBrand },
+  { Icon: Wand2, title: "Logo Animation", desc: "Motion-crafted brand marks for reels, intros, and product launches.", img: svcBrand },
+  { Icon: Film, title: "Intro Videos", desc: "Cinematic brand videos that communicate value in seconds.", img: svcVideo },
+  { Icon: Brain, title: "AI Solutions", desc: "Custom AI assistants, automation, and intelligent product features.", img: svcAi },
+  { Icon: Users, title: "Business Consultation", desc: "Strategy sessions that align technology decisions with revenue goals.", img: svcStrategy },
+  { Icon: Layers, title: "Software Planning", desc: "Architecture, roadmaps, and specs before a single line is written.", img: svcStrategy },
+  { Icon: Rocket, title: "Digital Transformation", desc: "Modernise legacy operations with cloud-native, automated workflows.", img: svcDev },
 ];
 
 export function Services() {
@@ -181,18 +188,36 @@ export function Services() {
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((s, i) => (
           <Reveal key={s.title} delay={(i % 3) * 0.08}>
-            <GlowCard className="h-full">
-              <div className="glass grid size-12 place-items-center rounded-xl text-primary">
-                <s.Icon className="size-6" />
+            <GlowCard className="group h-full overflow-hidden p-0">
+              <div className="relative h-40 overflow-hidden">
+                <img
+                  src={s.img}
+                  alt={`${s.title} illustration`}
+                  loading="lazy"
+                  width={768}
+                  height={512}
+                  className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(to_top,var(--card),transparent_75%)]" />
+                <div className="absolute inset-x-0 bottom-0 h-px bg-primary/50 shadow-glow" />
+                <motion.div
+                  whileHover={{ rotate: -6, scale: 1.08 }}
+                  transition={{ type: "spring", stiffness: 220, damping: 16 }}
+                  className="glass absolute bottom-3 left-4 grid size-12 place-items-center rounded-xl text-primary shadow-glow"
+                >
+                  <s.Icon className="size-6" />
+                </motion.div>
               </div>
-              <h3 className="mt-5 text-lg font-semibold">{s.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-              <a
-                href="#contact"
-                className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-transform duration-300 hover:translate-x-1"
-              >
-                Read More →
-              </a>
+              <div className="p-6">
+                <h3 className="text-lg font-semibold transition-colors group-hover:text-primary">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
+                <a
+                  href="#contact"
+                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-transform duration-300 hover:translate-x-1"
+                >
+                  Read More →
+                </a>
+              </div>
             </GlowCard>
           </Reveal>
         ))}
@@ -200,6 +225,7 @@ export function Services() {
     </Section>
   );
 }
+
 
 const tech = [
   "HTML",
@@ -236,7 +262,13 @@ export function TechMarquee() {
   );
 }
 
-const projects = [
+const projects: {
+  name: string;
+  tag: string;
+  features: string[];
+  Icon: typeof Brain;
+  url?: string;
+}[] = [
   {
     name: "Fluent AI",
     tag: "AI-powered communication platform",
@@ -261,6 +293,7 @@ const projects = [
       "Cover Letters",
     ],
     Icon: Wand2,
+    url: "https://sctlettergen.site/",
   },
 ];
 
@@ -275,30 +308,42 @@ export function Projects() {
       <div className="grid gap-6 lg:grid-cols-2">
         {projects.map((p, i) => (
           <Reveal key={p.name} delay={i * 0.1}>
-            <GlowCard className="h-full p-0" tilt={false}>
+            <GlowCard className="group h-full p-0" tilt={false}>
               <div className="relative flex h-52 items-center justify-center overflow-hidden border-b border-border bg-[radial-gradient(60%_80%_at_50%_0%,color-mix(in_oklab,var(--primary)_26%,transparent),transparent_70%)]">
-                <div className="grid-lines absolute inset-0 opacity-70" />
+                <div className="grid-lines absolute inset-0 opacity-70 transition-opacity duration-500 group-hover:opacity-100" />
                 <motion.div
-                  whileHover={{ scale: 1.06, rotate: -2 }}
-                  transition={{ type: "spring", stiffness: 200, damping: 18 }}
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: i * 0.6 }}
+                  whileHover={{ scale: 1.08, rotate: -3 }}
                   className="glass relative grid size-24 place-items-center rounded-3xl text-primary shadow-glow"
                 >
                   <p.Icon className="size-10" />
                 </motion.div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold">{p.name}</h3>
+                <h3 className="text-xl font-bold transition-colors group-hover:text-primary">{p.name}</h3>
                 <p className="mt-1 text-sm text-primary">{p.tag}</p>
                 <ul className="mt-5 flex flex-wrap gap-2">
                   {p.features.map((f) => (
                     <li
                       key={f}
-                      className="rounded-full border border-border bg-muted/40 px-3 py-1.5 text-xs text-muted-foreground"
+                      className="rounded-full border border-border bg-muted/40 px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:border-primary/50 hover:text-foreground"
                     >
                       {f}
                     </li>
                   ))}
                 </ul>
+                {p.url ? (
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow transition-transform duration-300 hover:scale-[1.04]"
+                  >
+                    Visit Live Site
+                    <ExternalLink className="size-4" />
+                  </a>
+                ) : null}
               </div>
             </GlowCard>
           </Reveal>
@@ -307,6 +352,7 @@ export function Projects() {
     </Section>
   );
 }
+
 
 const reasons = [
   { Icon: Users, title: "Professional Development Team" },

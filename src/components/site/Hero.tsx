@@ -1,7 +1,6 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Bot, Cpu, Sparkles, Zap } from "lucide-react";
 import { useEffect, useState } from "react";
-import logo from "@/assets/rinova-logo.asset.json";
 
 const particles = Array.from({ length: 26 }, (_, i) => ({
   left: (i * 37) % 100,
@@ -52,19 +51,13 @@ export function Hero() {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
           <motion.div
-            className="relative mb-9"
+            className="relative mb-9 h-1"
             style={{ x: pointer.x * 14, y: pointer.y * 10 }}
             transition={{ type: "spring", stiffness: 60, damping: 20 }}
           >
-            <div className="absolute inset-0 rounded-[2rem] bg-primary/35 blur-3xl" />
-            <img
-              src={logo.url}
-              alt="Rinova Technologies eagle logo"
-              className="relative size-28 rounded-[1.75rem] object-cover shadow-glow sm:size-32"
-              width={128}
-              height={128}
-            />
+            <div className="absolute -inset-x-40 -top-24 h-48 rounded-full bg-primary/20 blur-3xl" />
           </motion.div>
+
 
           <span className="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
             <Sparkles className="size-3.5" /> AI-Driven IT Solutions

@@ -16,7 +16,7 @@ import logo from "@/assets/rinova-logo.asset.json";
 import { GlowCard, Reveal, Section, SectionHeading } from "./primitives";
 
 const WHATSAPP = "https://wa.me/919999999999";
-const EMAIL = "hello@rinovatech.com";
+const EMAIL = "renovarvn2026@gmail.com";
 const PHONE = "+91 99999 99999";
 
 const socials = [
@@ -140,7 +140,7 @@ export function Contact() {
           {[
             { Icon: Mail, label: "Email", value: EMAIL, href: `mailto:${EMAIL}` },
             { Icon: Phone, label: "Phone", value: PHONE, href: `tel:${PHONE.replace(/\s/g, "")}` },
-            { Icon: MapPin, label: "Location", value: "Bengaluru, India · Serving worldwide" },
+            { Icon: MapPin, label: "Location", value: "Tumkur, Karnataka, India · Serving worldwide" },
           ].map((c) => (
             <div key={c.label} className="glass glow-ring flex items-start gap-4 rounded-2xl p-5">
               <div className="glass grid size-11 shrink-0 place-items-center rounded-xl text-primary">
