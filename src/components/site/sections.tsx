@@ -34,6 +34,12 @@ import {
   Wrench,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import svcAi from "@/assets/svc-ai.jpg";
+import svcBrand from "@/assets/svc-brand.jpg";
+import svcDesign from "@/assets/svc-design.jpg";
+import svcDev from "@/assets/svc-dev.jpg";
+import svcStrategy from "@/assets/svc-strategy.jpg";
+import svcVideo from "@/assets/svc-video.jpg";
 import { Eyebrow, GlowCard, Reveal, Section, SectionHeading } from "./primitives";
 
 export function TrustBar() {
