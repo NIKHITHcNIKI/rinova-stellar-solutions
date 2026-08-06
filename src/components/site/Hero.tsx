@@ -1,7 +1,6 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Bot, Cpu, Sparkles, Zap } from "lucide-react";
 import { useEffect, useState } from "react";
-import logo from "@/assets/rinova-logo.asset.json";
 
 const particles = Array.from({ length: 26 }, (_, i) => ({
   left: (i * 37) % 100,
