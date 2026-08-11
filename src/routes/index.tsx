@@ -3,7 +3,6 @@ import { CursorGlow } from "@/components/site/CursorGlow";
 import { Contact, Footer } from "@/components/site/Contact";
 import { Hero } from "@/components/site/Hero";
 import { Navbar } from "@/components/site/Navbar";
-import { Showreel } from "@/components/site/Showreel";
 import {
   About,
   FAQ,
@@ -42,7 +41,6 @@ function Index() {
         <Hero />
         <TrustBar />
         <About />
-        <Showreel />
         <Services />
         <TechMarquee />
         <Projects />
