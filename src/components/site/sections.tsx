@@ -37,12 +37,18 @@ import {
 import { useEffect, useRef, useState } from "react";
 import projFluent from "@/assets/proj-fluent-ai.jpg";
 import projLetterGen from "@/assets/proj-lettergen.jpg";
-import svcAi from "@/assets/svc-ai.jpg";
-import svcBrand from "@/assets/svc-brand.jpg";
-import svcDesign from "@/assets/svc-design.jpg";
-import svcDev from "@/assets/svc-dev.jpg";
-import svcStrategy from "@/assets/svc-strategy.jpg";
-import svcVideo from "@/assets/svc-video.jpg";
+const serviceImages = {
+  websiteDevelopment: "/services/website-development.png",
+  digitalTransformation: "/services/digital-transformation.png",
+  logoDesign: "/services/logo-design.png",
+  logoAnimation: "/services/logo-animation.png",
+  introVideos: "/services/intro-videos.png",
+  softwarePlanning: "/services/web-development-tech.png",
+  aiSolutions: "/services/ai-solutions.png",
+  websiteDesign: "/services/website-design.png",
+  businessConsultation: "/services/business-consultation.png",
+  uiUxDesign: "/services/ui-ux-design.png",
+};
 import { Eyebrow, GlowCard, Reveal, Section, SectionHeading } from "./primitives";
 
 export function TrustBar() {
@@ -167,16 +173,16 @@ export function About() {
 }
 
 const services = [
-  { Icon: Layout, title: "Website Design", desc: "Pixel-perfect, conversion-focused interfaces built around your brand.", img: svcDesign },
-  { Icon: Code2, title: "Website Development", desc: "Fast, secure, and scalable websites engineered with modern stacks.", img: svcDev },
-  { Icon: MonitorSmartphone, title: "UI/UX Design", desc: "Research-led product design that makes complex flows feel effortless.", img: svcDesign },
-  { Icon: PenTool, title: "Logo Design", desc: "Distinctive identity systems that make your business unforgettable.", img: svcBrand },
-  { Icon: Wand2, title: "Logo Animation", desc: "Motion-crafted brand marks for reels, intros, and product launches.", img: svcBrand },
-  { Icon: Film, title: "Intro Videos", desc: "Cinematic brand videos that communicate value in seconds.", img: svcVideo },
-  { Icon: Brain, title: "AI Solutions", desc: "Custom AI assistants, automation, and intelligent product features.", img: svcAi },
-  { Icon: Users, title: "Business Consultation", desc: "Strategy sessions that align technology decisions with revenue goals.", img: svcStrategy },
-  { Icon: Layers, title: "Software Planning", desc: "Architecture, roadmaps, and specs before a single line is written.", img: svcStrategy },
-  { Icon: Rocket, title: "Digital Transformation", desc: "Modernise legacy operations with cloud-native, automated workflows.", img: svcDev },
+  { Icon: Layout, title: "Website Design", desc: "Pixel-perfect, conversion-focused interfaces built around your brand.", img: serviceImages.websiteDesign },
+  { Icon: Code2, title: "Website Development", desc: "Fast, secure, and scalable websites engineered with modern stacks.", img: serviceImages.websiteDevelopment },
+  { Icon: MonitorSmartphone, title: "UI/UX Design", desc: "Research-led product design that makes complex flows feel effortless.", img: serviceImages.uiUxDesign },
+  { Icon: PenTool, title: "Logo Design", desc: "Distinctive identity systems that make your business unforgettable.", img: serviceImages.logoDesign },
+  { Icon: Wand2, title: "Logo Animation", desc: "Motion-crafted brand marks for reels, intros, and product launches.", img: serviceImages.logoAnimation },
+  { Icon: Film, title: "Intro Videos", desc: "Cinematic brand videos that communicate value in seconds.", img: serviceImages.introVideos },
+  { Icon: Brain, title: "AI Solutions", desc: "Custom AI assistants, automation, and intelligent product features.", img: serviceImages.aiSolutions },
+  { Icon: Users, title: "Business Consultation", desc: "Strategy sessions that align technology decisions with revenue goals.", img: serviceImages.businessConsultation },
+  { Icon: Layers, title: "Software Planning", desc: "Architecture, roadmaps, and specs before a single line is written.", img: serviceImages.softwarePlanning },
+  { Icon: Rocket, title: "Digital Transformation", desc: "Modernise legacy operations with cloud-native, automated workflows.", img: serviceImages.digitalTransformation },
 ];
 
 export function Services() {
