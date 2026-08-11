@@ -12,10 +12,10 @@ export function Hero() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="home" className="relative overflow-hidden px-5 pb-24 pt-24 sm:px-8 md:pb-32 md:pt-28">
-      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+    <section id="home" className="relative isolate min-h-[640px] overflow-hidden px-5 pb-24 pt-24 sm:px-8 md:pb-32 md:pt-28">
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
         <video
-          className="absolute inset-0 size-full object-cover opacity-35"
+          className="absolute inset-0 size-full object-cover opacity-70"
           autoPlay
           muted
           loop
@@ -23,12 +23,12 @@ export function Hero() {
           aria-hidden="true"
           poster="/logo.png"
         >
-          <source src="/rinova-hero-background.mp4" type="video/mp4" />
+          <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Yes_bro_%F0%9F%91%8D_RINOVA_should_appea-lqbw8vvwlxQZhbetPYTRzKQsiSxj3b.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-background/75" />
+        <div className="absolute inset-0 bg-background/35" />
       </div>
-      <div className="hero-bg pointer-events-none absolute inset-0 -z-10" />
-      <div className="grid-lines pointer-events-none absolute inset-0 -z-10" />
+      <div className="hero-bg pointer-events-none absolute inset-0 z-[1] opacity-60" />
+      <div className="grid-lines pointer-events-none absolute inset-0 z-[2]" />
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         {particles.map((p, i) => (
           <motion.span
@@ -43,7 +43,7 @@ export function Hero() {
         <div className="pulse-glow absolute left-1/2 top-24 size-[340px] -translate-x-1/2 rounded-full border border-primary/20" />
       </div>
 
-      <div className="mx-auto w-full max-w-6xl">
+      <div className="relative z-10 mx-auto w-full max-w-6xl">
         <motion.div
           className="flex flex-col items-center text-center"
           initial={{ opacity: 0, y: 30 }}
