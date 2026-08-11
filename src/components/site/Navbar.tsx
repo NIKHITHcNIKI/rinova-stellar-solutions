@@ -38,7 +38,7 @@ export function Navbar() {
           <span className="relative">
             <span className="absolute inset-0 rounded-xl bg-primary/40 blur-lg transition-opacity duration-500 group-hover:opacity-100 opacity-60" />
             <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-08-11%20080453-YgIbRmtoaiwyfqDJedZG8WNq3QoZfl.png"
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-yK4cgWfzjOqjd70WNKV2r8Lqs7Kg78.png"
               alt="Rinova Technologies logo"
               className="relative size-10 rounded-xl object-cover"
               width={40}

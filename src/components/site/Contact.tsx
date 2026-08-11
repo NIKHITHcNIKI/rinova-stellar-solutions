@@ -187,7 +187,7 @@ export function Footer() {
         <div>
           <div className="flex items-center gap-3">
             <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-08-11%20080453-YgIbRmtoaiwyfqDJedZG8WNq3QoZfl.png"
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-yK4cgWfzjOqjd70WNKV2r8Lqs7Kg78.png"
               alt="Rinova Technologies logo"
               className="size-10 rounded-xl object-cover"
               width={40}
