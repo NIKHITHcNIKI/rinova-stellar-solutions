@@ -23,7 +23,7 @@ export function Hero() {
           aria-hidden="true"
           poster="/logo.png"
         >
-          <source src="/hero-background.mp4" type="video/mp4" />
+          <source src="/rinova-hero-background.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-background/75" />
       </div>
