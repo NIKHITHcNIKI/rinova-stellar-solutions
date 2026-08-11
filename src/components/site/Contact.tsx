@@ -12,7 +12,6 @@ import {
   Youtube,
 } from "lucide-react";
 import { useState } from "react";
-import logo from "@/assets/rinova-logo.asset.json";
 import { GlowCard, Reveal, Section, SectionHeading } from "./primitives";
 
 const WHATSAPP = "https://wa.me/919999999999";
@@ -188,7 +187,7 @@ export function Footer() {
         <div>
           <div className="flex items-center gap-3">
             <img
-              src={logo.url}
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-08-11%20080453-YgIbRmtoaiwyfqDJedZG8WNq3QoZfl.png"
               alt="Rinova Technologies logo"
               className="size-10 rounded-xl object-cover"
               width={40}

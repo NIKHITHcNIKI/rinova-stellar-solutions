@@ -2,8 +2,6 @@ import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import logo from "@/assets/rinova-logo.asset.json";
-
 const links = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
@@ -40,7 +38,7 @@ export function Navbar() {
           <span className="relative">
             <span className="absolute inset-0 rounded-xl bg-primary/40 blur-lg transition-opacity duration-500 group-hover:opacity-100 opacity-60" />
             <img
-              src={logo.url}
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-08-11%20080453-YgIbRmtoaiwyfqDJedZG8WNq3QoZfl.png"
               alt="Rinova Technologies logo"
               className="relative size-10 rounded-xl object-cover"
               width={40}
