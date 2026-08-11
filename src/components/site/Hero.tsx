@@ -13,6 +13,20 @@ export function Hero() {
 
   return (
     <section id="home" className="relative overflow-hidden px-5 pb-24 pt-24 sm:px-8 md:pb-32 md:pt-28">
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <video
+          className="absolute inset-0 size-full object-cover opacity-35"
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden="true"
+          poster="/logo.png"
+        >
+          <source src="/hero-background.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-background/75" />
+      </div>
       <div className="hero-bg pointer-events-none absolute inset-0 -z-10" />
       <div className="grid-lines pointer-events-none absolute inset-0 -z-10" />
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
